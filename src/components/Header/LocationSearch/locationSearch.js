@@ -13,6 +13,10 @@ const LocationSearch = ({ setChosenLocation }) => {
     fetchError,
   } = useLocationSearch({});
 
+  const shouldShowDropdown =
+    searchPhrase.length > 2 &&
+    (isLoadingLocations || locationResults || fetchError);
+
   return (
     <div className={classes.root}>
       <input
@@ -22,7 +26,7 @@ const LocationSearch = ({ setChosenLocation }) => {
         type="text"
         value={searchPhrase}
       />
-      {searchPhrase.length > 2 && (
+      {shouldShowDropdown && (
         <div className={classes.dropdown}>
           <LocationResults
             locationResults={locationResults}
