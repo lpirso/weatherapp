@@ -26,11 +26,11 @@ const Forecast = ({ chosenLocationForecast, unitSymbol }) => {
             <div className={classes.day} key={dt_txt}>
               <div className={classes.date}>{date.toDateString()}</div>
               <i className={iconClass} />
-              <div className={classes.temp}>{main.temp + " " + unitSymbol}</div>
+              <div className={classes.temp}>{`${main.temp} ${unitSymbol}`}</div>
               <div className={classes.feels}>
-                {main.feels_like + " " + unitSymbol}
+                {`${main.feels_like} ${unitSymbol}`}
               </div>
-              <div className={classes.wind}>Wind: {wind.speed}m/s</div>
+              <div className={classes.wind}>{`Wind: ${wind.speed}m/s`}</div>
             </div>
           );
         })}

@@ -16,11 +16,11 @@ const CurrentWeather = ({ chosenLocationCurrentWeather, unitSymbol }) => {
       <h2>Current Weather</h2>
       <div className={classes.root}>
         <i className={iconClass} />
-        <div className={classes.temp}>{main.temp + " " + unitSymbol}</div>
+        <div className={classes.temp}>{`${main.temp} ${unitSymbol}`}</div>
         <div className={classes.feels}>
-          Feels like {main.feels_like + " " + unitSymbol}
+          {`Feels like ${main.feels_like} ${unitSymbol}`}
         </div>
-        <div className={classes.wind}>Wind: {wind.speed}m/s</div>
+        <div className={classes.wind}>{`Wind: ${wind.speed}m/s`}</div>
       </div>
     </>
   );

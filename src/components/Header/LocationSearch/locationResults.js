@@ -39,8 +39,8 @@ const LocationResults = (props) => {
           <button className={classes.option} onClick={handleClick} key={key}>
             <span>{name}</span>
             <span>{country}</span>
-            <span>Latitude: {lat}</span>
-            <span>Longitude: {lon}</span>
+            <span>{`Latitude: ${lat}`}</span>
+            <span>{`Longitude: ${lon}`}</span>
           </button>
         );
       })}
