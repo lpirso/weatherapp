@@ -1,1 +1,1 @@
-export { default } from './locationSearch';
+export { default } from "./locationSearch";

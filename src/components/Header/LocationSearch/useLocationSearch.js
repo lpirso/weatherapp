@@ -1,49 +1,49 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 export const useLocationSearch = () => {
-    const [locationResults, setLocationResults] = useState();
+  const [locationResults, setLocationResults] = useState();
 
-    const [ searchPhrase, setSearchPhrase] = useState("");
+  const [searchPhrase, setSearchPhrase] = useState("");
 
-    const [fetchError, setFetchError] = useState("");
-    const [isLoadingLocations, setIsLoadingLocations] = useState(false);
+  const [fetchError, setFetchError] = useState("");
+  const [isLoadingLocations, setIsLoadingLocations] = useState(false);
 
-    const fetchPossibleLocations = async (searchPhrase) => {
-        if (searchPhrase.length < 3) return;
-        
-        setFetchError("");
-        setIsLoadingLocations(true);
+  const fetchPossibleLocations = async (searchPhrase) => {
+    if (searchPhrase.length < 3) return;
 
-        try {
-            const response = await fetch(
-                `http://api.openweathermap.org/geo/1.0/direct?q=${searchPhrase}&limit=5&appid=b7bd04ff4941691fddf8fc97b8897d61`,
-            );
+    setFetchError("");
+    setIsLoadingLocations(true);
 
-            if (!response.ok) {
-                throw new Error(response.statusText);
-            }
-            const data = await response.json();
-            setLocationResults(data);
-            setIsLoadingLocations(false);
-        } catch (error) {
-            setIsLoadingLocations(false);
-            setFetchError(error.message);
-        }
-    };
+    try {
+      const response = await fetch(
+        `http://api.openweathermap.org/geo/1.0/direct?q=${searchPhrase}&limit=5&appid=b7bd04ff4941691fddf8fc97b8897d61`
+      );
 
-    useEffect(() => {
-        const delay = setTimeout(() => {
-            fetchPossibleLocations(searchPhrase);
-        }, 400);
-        
-        return () => clearTimeout(delay)
-    },[searchPhrase])
-
-    return {
-        searchPhrase,
-        setSearchPhrase,
-        locationResults,
-        isLoadingLocations,
-        fetchError
+      if (!response.ok) {
+        throw new Error(response.statusText);
+      }
+      const data = await response.json();
+      setLocationResults(data);
+      setIsLoadingLocations(false);
+    } catch (error) {
+      setIsLoadingLocations(false);
+      setFetchError(error.message);
     }
-}
+  };
+
+  useEffect(() => {
+    const delay = setTimeout(() => {
+      fetchPossibleLocations(searchPhrase);
+    }, 400);
+
+    return () => clearTimeout(delay);
+  }, [searchPhrase]);
+
+  return {
+    searchPhrase,
+    setSearchPhrase,
+    locationResults,
+    isLoadingLocations,
+    fetchError,
+  };
+};
