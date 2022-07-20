@@ -1,0 +1,43 @@
+.root {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    font-size: 1.4rem;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 60px;
+}
+
+@media screen and (min-width: 460px) {
+    .root {
+        grid-template-columns: auto 1fr auto;
+    }
+}
+
+.icon {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 40px;
+}
+
+.temp {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 2.2rem;
+}
+
+.feels {
+    grid-column: 1 / span 2;
+    grid-row: 2;
+}
+
+.wind {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+}
+
+@media screen and (min-width: 460px) {
+    .wind {
+        grid-column: 3;
+        grid-row: 1;
+    }
+}

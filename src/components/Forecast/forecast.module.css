@@ -1,0 +1,61 @@
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.day {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    font-size: 1rem;
+    align-items: center;
+    row-gap: 10px;
+    column-gap: 20px;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+}
+
+@media screen and (min-width: 460px) {
+    .day {
+        grid-template-columns: auto 1fr auto;
+    }
+}
+
+.day:last-child {
+    border-bottom: none;
+}
+
+.date {
+    grid-column: 1 /span 3;
+    grid-row: 1;
+    font-weight: 600;
+}
+
+.icon {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 32px;
+}
+
+.temp {
+    grid-column: 2;
+    grid-row: 2;
+    font-size: 1.8rem;
+}
+
+.feels {
+    grid-column: 1 / span 2;
+    grid-row: 3;
+}
+
+.wind {
+    grid-column: 1 / span 2;
+    grid-row: 4;
+}
+
+@media screen and (min-width: 460px) {
+    .wind {
+        grid-column: 3;
+        grid-row: 2;
+    }
+}

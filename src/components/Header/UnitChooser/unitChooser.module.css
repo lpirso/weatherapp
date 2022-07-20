@@ -1,0 +1,20 @@
+.root {
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px;
+}
+
+.button {
+    padding: 10px;
+    border-radius: 0;
+    border: 1px solid white;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.button:disabled {
+    opacity: 0.5;
+    cursor: default;
+}

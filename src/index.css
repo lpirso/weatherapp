@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  font-family: 'Roboto';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #6EADDF, #4F96D8,  #357ECD, #1C68C0);
+	background-size: 400% 400%;
+	animation: gradient 10s ease-in-out infinite;
+  height: 100vh;
+  color: rgb(255, 255, 255);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+	margin-bottom: 0;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

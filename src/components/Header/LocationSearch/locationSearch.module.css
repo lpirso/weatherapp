@@ -1,0 +1,76 @@
+.root {
+    position: relative;
+}
+
+.input {
+    padding: 12px 20px;
+    width: 100%;
+    border-radius: 0;
+    border: 1px solid white;
+    background-color: #5395d7;
+    font-size: 1rem;
+    color: white;
+}
+
+input::placeholder {
+    color: white;
+}
+
+.input:focus {
+    outline: 0;
+}
+
+.dropdown {
+    position: fixed;
+    top: 84px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    z-index: 1;
+    width: 98%;
+    border: 1px solid white;
+    background-color: #5395d7;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .dropdown {
+        position: absolute;
+        left: 0;
+        transform: translate(0, 0);
+        top: 100%;
+        margin-top: 10px;
+        max-height: 400px;
+        width: 100%;
+    }
+}
+
+.results {
+    display: grid;
+    grid-auto-flow: row;
+    width: 100%;
+}
+
+.option {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 6px;
+    margin-bottom: 14px;
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: flex-start;
+    gap: 8px;
+    transition: background-color 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.option:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
